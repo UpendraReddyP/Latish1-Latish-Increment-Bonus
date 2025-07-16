@@ -18,7 +18,7 @@ services:
     build: ./Backend
     container_name: increment_backend
     ports:
-      - "3099:3068"
+      - "3099:3099"
     depends_on:
       - postgres
     environment:
