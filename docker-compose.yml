@@ -5,10 +5,10 @@ services:
     image: postgres:14
     container_name: increment_postgres
     ports:
-      - "5466:5432"
+      - "5099:5432"
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin834
+      POSTGRES_PASSWORD: admin123
       POSTGRES_DB: employee_portal
     volumes:
       - pgdata_increment:/var/lib/postgresql/data
@@ -18,12 +18,12 @@ services:
     build: ./Backend
     container_name: increment_backend
     ports:
-      - "3068:3068"
+      - "3099:3068"
     depends_on:
       - postgres
     environment:
       PGUSER: postgres
-      PGPASSWORD: admin834
+      PGPASSWORD: admin123
       PGDATABASE: employee_portal
       PGHOST: postgres
       PGPORT: 5432
@@ -33,7 +33,7 @@ services:
     build: ./Employee-Increment
     container_name: employee_increment_ui
     ports:
-      - "8085:80"
+      - "8166:80"
     depends_on:
       - backend
 
@@ -41,7 +41,7 @@ services:
     build: ./HR-Increment
     container_name: hr_increment_ui
     ports:
-      - "8086:80"
+      - "8167:80"
     depends_on:
       - backend
 
